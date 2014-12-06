@@ -1,9 +1,12 @@
 Package.describe({
-  summary: "Timeline.js by NUKnightLab packaged for Meteor"
+  summary: "Timeline.js by NUKnightLab packaged for Meteor",
+  version: "0.0.1",
+  git: "https://github.com/Agnito/meteor-timeline.git",
+  name: "agnito:timeline"
 });
 
-Package.on_use(function (api, where) {
-  api.use('jquery', 'client');
+Package.onUse(function (api, where) {
+  api.use('jquery');
   api.add_files([
   	'css/blank.gif',
 	'css/fancybox_sprite.png',
@@ -95,6 +98,6 @@ Package.on_use(function (api, where) {
 	'js/locale/uk.js',
 	'js/locale/zh-cn.js',
 	'js/locale/zh-tw.js']
-	,['client']);
+	,'client');
 });
 
