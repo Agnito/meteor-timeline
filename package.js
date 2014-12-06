@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Timeline.js by NUKnightLab packaged for Meteor",
-  version: "0.0.1",
+  version: "0.0.2",
   git: "https://github.com/Agnito/meteor-timeline.git",
   name: "agnito:timeline"
 });
@@ -68,7 +68,6 @@ Package.onUse(function (api, where) {
 	'js/locale/id.js',
 	'js/locale/is.js',
 	'js/locale/it.js',
-	'js/locale/iw.js',
 	'js/locale/ja.js',
 	'js/locale/ka.js',
 	'js/locale/ko.js',

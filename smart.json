@@ -3,7 +3,7 @@
   "description": "Timeline.js by NUKnightLab packaged for Meteor",
   "homepage": "https://github.com/agnito/meteor-timeline.git",
   "author": "Dan Rubins",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "git": "https://github.com/agnito/meteor-timeline.git",
   "packages": {}
 }
