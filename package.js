@@ -6,7 +6,8 @@ Package.describe({
 });
 
 Package.onUse(function (api, where) {
-  api.use('jquery');
+  api.versionsFrom("1.0");
+  api.use('jquery', 'client');
   api.add_files([
   	'css/blank.gif',
 	'css/fancybox_sprite.png',
