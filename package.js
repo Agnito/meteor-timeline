@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Timeline.js by NUKnightLab packaged for Meteor",
-  version: "0.0.2",
+  version: "0.1.0",
   git: "https://github.com/Agnito/meteor-timeline.git",
   name: "agnito:timeline"
 });
@@ -8,96 +8,97 @@ Package.describe({
 Package.onUse(function (api, where) {
   api.versionsFrom("1.0");
   api.use('jquery', 'client');
-  api.add_files([
-  	'css/blank.gif',
-	'css/fancybox_sprite.png',
-	'css/fancybox_sprite@2x.png',
-	'css/loading.gif',
-	'css/loading@2x.gif',
-	'css/timeline.css',
-	'css/timeline.png',
-	'css/timeline@2x.png',
-	'css/themes/dark.css',
-	'css/themes/timeline-dark.png',
-	'css/themes/timeline-dark@2x.png',
-	'css/themes/timeline-texture.png',
-	'css/themes/font/AbrilFatface-Average.css',
-	'css/themes/font/Arvo-PTSans.css',
-	'css/themes/font/Bevan-PotanoSans.css',
-	'css/themes/font/BreeSerif-OpenSans.css',
-	'css/themes/font/DroidSerif-DroidSans.css',
-	'css/themes/font/Georgia-Helvetica.css',
-	'css/themes/font/Lekton-Molengo.css',
-	'css/themes/font/Lora-Istok.css',
-	'css/themes/font/Merriweather-NewsCycle.css',
-	'css/themes/font/NewsCycle-Merriweather.css',
-	'css/themes/font/NixieOne-Ledger.css',
-	'css/themes/font/PT.css',
-	'css/themes/font/PTSerif-PTSans.css',
-	'css/themes/font/Pacifico-Arimo.css',
-	'css/themes/font/PlayfairDisplay-Muli.css',
-	'css/themes/font/PoiretOne-Molengo.css',
-	'css/themes/font/Rancho-Gudea.css',
-	'css/themes/font/SansitaOne-Kameron.css',
-	'js/storyjs-embed.js',
-	'js/timeline.js',
-	'js/locale/af.js',
-	'js/locale/ar.js',
-	'js/locale/bg.js',
-	'js/locale/ca.js',
-	'js/locale/cz.js',
-	'js/locale/da.js',
-	'js/locale/de.js',
-	'js/locale/el.js',
-	'js/locale/en-24hr.js',
-	'js/locale/en-week.js',
-	'js/locale/en.js',
-	'js/locale/eo.js',
-	'js/locale/es.js',
-	'js/locale/et.js',
-	'js/locale/eu.js',
-	'js/locale/fa.js',
-	'js/locale/fi.js',
-	'js/locale/fo.js',
-	'js/locale/fr.js',
-	'js/locale/gl.js',
-	'js/locale/he.js',
-	'js/locale/hr.js',
-	'js/locale/hu.js',
-	'js/locale/hy.js',
-	'js/locale/id.js',
-	'js/locale/is.js',
-	'js/locale/it.js',
-	'js/locale/ja.js',
-	'js/locale/ka.js',
-	'js/locale/ko.js',
-	'js/locale/lb.js',
-	'js/locale/lt.js',
-	'js/locale/lv.js',
-	'js/locale/ms.js',
-	'js/locale/ne.js',
-	'js/locale/nl.js',
-	'js/locale/no.js',
-	'js/locale/pl.js',
-	'js/locale/pt-br.js',
-	'js/locale/pt.js',
-	'js/locale/rm.js',
-	'js/locale/ro.js',
-	'js/locale/ru.js',
-	'js/locale/si.js',
-	'js/locale/sk.js',
-	'js/locale/sl.js',
-	'js/locale/sr-cy.js',
-	'js/locale/sr.js',
-	'js/locale/sv.js',
-	'js/locale/ta.js',
-	'js/locale/te.js',
-	'js/locale/th.js',
-	'js/locale/tl.js',
-	'js/locale/tr.js',
-	'js/locale/uk.js',
-	'js/locale/zh-cn.js',
-	'js/locale/zh-tw.js']
-	,'client');
+  
+  var path = Npm.require('path');
+
+  api.addFiles('js/storyjs-embed.js', 'client');
+  api.addFiles('js/timeline-min.js', 'client', {isAsset: true});
+  api.addFiles('css/blank.gif', 'client', {isAsset: true});
+  api.addFiles('css/fancybox_sprite.png', 'client', {isAsset: true});
+  api.addFiles('css/fancybox_sprite@2x.png', 'client', {isAsset: true});
+  api.addFiles('css/loading.gif', 'client', {isAsset: true});
+  api.addFiles('css/loading@2x.gif', 'client', {isAsset: true});
+  api.addFiles('css/timeline.css', 'client', {isAsset: true});
+  api.addFiles('css/timeline.png', 'client', {isAsset: true});
+  api.addFiles('css/timeline@2x.png', 'client', {isAsset: true});
+  api.addFiles('css/themes/dark.css', 'client');
+  api.addFiles('css/themes/timeline-dark.png', 'client', {isAsset: true});
+  api.addFiles('css/themes/timeline-dark@2x.png', 'client', {isAsset: true});
+  api.addFiles('css/themes/timeline-texture.png', 'client', {isAsset: true});
+  api.addFiles('css/themes/font/AbrilFatface-Average.css', 'client', {isAsset: true});
+  api.addFiles('css/themes/font/Arvo-PTSans.css', 'client', {isAsset: true});
+  api.addFiles('css/themes/font/Bevan-PotanoSans.css', 'client', {isAsset: true});
+  api.addFiles('css/themes/font/BreeSerif-OpenSans.css', 'client', {isAsset: true});
+  api.addFiles('css/themes/font/DroidSerif-DroidSans.css', 'client', {isAsset: true});
+  api.addFiles('css/themes/font/Georgia-Helvetica.css', 'client', {isAsset: true});
+  api.addFiles('css/themes/font/Lekton-Molengo.css', 'client', {isAsset: true});
+  api.addFiles('css/themes/font/Lora-Istok.css', 'client', {isAsset: true});
+  api.addFiles('css/themes/font/Merriweather-NewsCycle.css', 'client', {isAsset: true});
+  api.addFiles('css/themes/font/NewsCycle-Merriweather.css', 'client', {isAsset: true});
+  api.addFiles('css/themes/font/NixieOne-Ledger.css', 'client', {isAsset: true});
+  api.addFiles('css/themes/font/PT.css', 'client', {isAsset: true});
+  api.addFiles('css/themes/font/PTSerif-PTSans.css', 'client', {isAsset: true});
+  api.addFiles('css/themes/font/Pacifico-Arimo.css', 'client', {isAsset: true});
+  api.addFiles('css/themes/font/PlayfairDisplay-Muli.css', 'client', {isAsset: true});
+  api.addFiles('css/themes/font/PoiretOne-Molengo.css', 'client', {isAsset: true});
+  api.addFiles('css/themes/font/Rancho-Gudea.css', 'client', {isAsset: true});
+  api.addFiles('css/themes/font/SansitaOne-Kameron.css', 'client', {isAsset: true});
+  api.addFiles('js/locale/af.js', 'client');
+  api.addFiles('js/locale/ar.js', 'client');
+  api.addFiles('js/locale/bg.js', 'client');
+  api.addFiles('js/locale/ca.js', 'client');
+  api.addFiles('js/locale/cz.js', 'client');
+  api.addFiles('js/locale/da.js', 'client');
+  api.addFiles('js/locale/de.js', 'client');
+  api.addFiles('js/locale/el.js', 'client');
+  api.addFiles('js/locale/en-24hr.js', 'client');
+  api.addFiles('js/locale/en-week.js', 'client');
+  api.addFiles('js/locale/en.js', 'client');
+  api.addFiles('js/locale/eo.js', 'client');
+  api.addFiles('js/locale/es.js', 'client');
+  api.addFiles('js/locale/et.js', 'client');
+  api.addFiles('js/locale/eu.js', 'client');
+  api.addFiles('js/locale/fa.js', 'client');
+  api.addFiles('js/locale/fi.js', 'client');
+  api.addFiles('js/locale/fo.js', 'client');
+  api.addFiles('js/locale/fr.js', 'client');
+  api.addFiles('js/locale/gl.js', 'client');
+  api.addFiles('js/locale/he.js', 'client');
+  api.addFiles('js/locale/hr.js', 'client');
+  api.addFiles('js/locale/hu.js', 'client');
+  api.addFiles('js/locale/hy.js', 'client');
+  api.addFiles('js/locale/id.js', 'client');
+  api.addFiles('js/locale/is.js', 'client');
+  api.addFiles('js/locale/it.js', 'client');
+  api.addFiles('js/locale/ja.js', 'client');
+  api.addFiles('js/locale/ka.js', 'client');
+  api.addFiles('js/locale/ko.js', 'client');
+  api.addFiles('js/locale/lb.js', 'client');
+  api.addFiles('js/locale/lt.js', 'client');
+  api.addFiles('js/locale/lv.js', 'client');
+  api.addFiles('js/locale/ms.js', 'client');
+  api.addFiles('js/locale/ne.js', 'client');
+  api.addFiles('js/locale/nl.js', 'client');
+  api.addFiles('js/locale/no.js', 'client');
+  api.addFiles('js/locale/pl.js', 'client');
+  api.addFiles('js/locale/pt-br.js', 'client');
+  api.addFiles('js/locale/pt.js', 'client');
+  api.addFiles('js/locale/rm.js', 'client');
+  api.addFiles('js/locale/ro.js', 'client');
+  api.addFiles('js/locale/ru.js', 'client');
+  api.addFiles('js/locale/si.js', 'client');
+  api.addFiles('js/locale/sk.js', 'client');
+  api.addFiles('js/locale/sl.js', 'client');
+  api.addFiles('js/locale/sr-cy.js', 'client');
+  api.addFiles('js/locale/sr.js', 'client');
+  api.addFiles('js/locale/sv.js', 'client');
+  api.addFiles('js/locale/ta.js', 'client');
+  api.addFiles('js/locale/te.js', 'client');
+  api.addFiles('js/locale/th.js', 'client');
+  api.addFiles('js/locale/tl.js', 'client');
+  api.addFiles('js/locale/tr.js', 'client');
+  api.addFiles('js/locale/uk.js', 'client');
+  api.addFiles('js/locale/zh-cn.js', 'client');
+  api.addFiles('js/locale/zh-tw.js', 'client');
 });
 
